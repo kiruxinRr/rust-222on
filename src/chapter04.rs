@@ -234,9 +234,98 @@ fn test20() {
     println!("Success!");
 }
 
+#[test]
+fn test21() {
+    let (x, y) = (1, 2);
+    let s = sum(x, y);
+
+    assert_eq!(s, 3);
+
+    println!("Success!");
+}
+
 fn sum(x: i32, y: i32) -> i32 {
     x + y
 }
+
+#[test]
+fn test22() {
+    print();
+}
+
+fn print() {
+    println!("Success!");
+}
+
+
+#[test]
+fn test23() {
+    never_return();
+}
+
+
+fn never_return() -> ! {
+    loop {
+        println!("I return nothing");
+        std::thread::sleep(std::time::Duration::from_secs(1));
+    }
+}
+
+#[test]
+fn test24() {
+    println!("Success!");
+}
+
+fn get_option(tp: u8) -> Option<i32> {
+    match tp {
+        1 => {
+            // TODO
+        }
+        _ => {
+            // TODO
+        }
+    };
+
+    never_return_fn()
+}
+
+fn never_return_fn() -> ! {
+    unimplemented!()
+}
+
+
+#[test]
+fn test25() {
+
+    let b = true;
+
+    let _v = match b {
+        true => 1,
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic");
+        }
+    };
+
+    println!("Exercise Failed if printing out this line!");
+}
+fn test25() {
+    let b = false;
+
+    let _v = match b {
+        true => 1,
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic");
+        }
+    };
+
+    println!("Exercise Failed if printing out this line!");
+}
+
+
+
+
 
 
 
